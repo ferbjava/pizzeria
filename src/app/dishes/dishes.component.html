@@ -1,0 +1,25 @@
+<div class="dishes-container">
+  <div class="dishes-types">
+    <button (click)="getDishesByType(typePizza)">Pizza</button>
+    <button (click)="getDishesByType(typeSpaghetti)">Pasta</button>
+    <button (click)="getDishesByType(typeDrink)">Drink</button>
+  </div>
+  <table *ngIf="dishes" class="table-dishes">
+    <tr class="table-col-description">
+      <th class="column-id">No</th>
+      <th class="column-name">Name</th>
+      <th class="column-desc">Description</th>
+      <th class="column-price">Price</th>
+      <th class="column-order">Order</th>
+    </tr>
+    <tr *ngFor="let dish of dishes">
+      <td class="column-id">{{+dishes.indexOf(dish)+1}}</td>
+      <td class="column-name">{{dish.name}}</td>
+      <td class="column-desc">{{dish.description}}</td>
+      <td class="column-price">{{dish.price}}</td>
+      <td class="column-order">
+        <button (click)="addToCart(this.dish)"> Add to cart</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,5 +1,5 @@
 export enum DishesTypes {
-  Pizza,
-  Spaghetti,
-  Drink
+  PIZZA = 'pizza',
+  SPAGHETTI = 'spagetti',
+  DRINK = 'drink'
 }

@@ -1,0 +1,21 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  text-align:center;
+  background: beige;
+  margin: 2em;
+}
+.title{
+  width: 70%;
+  font-size: 2em;
+  border: 1px solid black;
+}
+.control{
+  //justify-self: flex-end;
+  width: 20%;
+  display: inline;
+  border: 1px solid black;
+}
+.control-button{
+  border-radius: 25px;
+}
