@@ -32,4 +32,9 @@ export class DishesService {
   getDishesFromCart(): Dish[] {
     return this.dishesInCart;
   }
+
+  removeFromCart(dish: Dish) {
+    const index = this.dishesInCart.indexOf(dish);
+    this.dishesInCart.splice(index, 1);
+  }
 }

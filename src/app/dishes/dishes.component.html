@@ -13,7 +13,7 @@
       <th class="column-order">Order</th>
     </tr>
     <tr *ngFor="let dish of dishes">
-      <td class="column-id">{{+dishes.indexOf(dish)+1}}</td>
+      <td class="column-id">{{+dishes.indexOf(this.dish)+1}}</td>
       <td class="column-name">{{dish.name}}</td>
       <td class="column-desc">{{dish.description}}</td>
       <td class="column-price">{{dish.price}}</td>

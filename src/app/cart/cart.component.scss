@@ -3,3 +3,24 @@
   margin: 0.5em;
   padding: 0.5em;
 }
+table, th, td{
+  border: 1px solid black;
+}
+.table-dishes{
+  width: 100%;
+}
+.column-id{
+  width: 15%;
+}
+.column-name{
+  width: 10%;
+}
+.column-desc{
+  width: 50%;
+}
+.column-price{
+  width: 10%;
+}
+.column-order{
+  width: 15%;
+}
