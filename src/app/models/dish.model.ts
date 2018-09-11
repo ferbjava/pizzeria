@@ -1,6 +1,6 @@
 import {DishesTypes} from './dishes-types';
 
-export interface Dish {
+export class Dish {
   id: number;
   name: string;
   description: string;

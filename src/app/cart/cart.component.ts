@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { DishesService} from '../dishes/dishes.service';
 import { Dish} from '../models/dish.model';
-import { Location} from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -15,16 +14,11 @@ export class CartComponent implements OnInit {
 
   constructor(
     private service: DishesService,
-    private location: Location
   ) { }
 
   ngOnInit() {
     this.dishesInCart = this.service.getDishesFromCart();
     this.calculateTotalPrice();
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 
   removeFromCart(dish: Dish) {

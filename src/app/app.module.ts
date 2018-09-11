@@ -11,6 +11,7 @@ import { HeaderPanelComponent } from './header-panel/header-panel.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
