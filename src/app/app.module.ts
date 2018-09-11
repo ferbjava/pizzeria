@@ -9,6 +9,8 @@ import { DishDetailsComponent } from './dish-details/dish-details.component';
 import { DishPreviewComponent } from './dish-preview/dish-preview.component';
 import { HeaderPanelComponent } from './header-panel/header-panel.component';
 import { CartComponent } from './cart/cart.component';
+import { OrderFormComponent } from './order-form/order-form.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CartComponent } from './cart/cart.component';
     DishDetailsComponent,
     DishPreviewComponent,
     HeaderPanelComponent,
-    CartComponent
+    CartComponent,
+    OrderFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

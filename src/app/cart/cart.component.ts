@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.dishesInCart = this.service.getDishesFromCart();
+    this.calculateTotalPrice();
   }
 
   goBack(): void {
@@ -28,5 +29,10 @@ export class CartComponent implements OnInit {
 
   removeFromCart(dish: Dish) {
     this.service.removeFromCart(dish);
+    this.calculateTotalPrice();
+  }
+
+  private calculateTotalPrice(): void {
+    this.totalPrice = this.dishesInCart.reduce((a, b) => +a + +b.price, 0);
   }
 }

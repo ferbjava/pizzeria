@@ -1,5 +1,5 @@
 .dishes-container {
-  //display: flex;
+  min-width: 800px;
   background: beige;
   margin: 0.5em;
   padding: 0.5em;
@@ -25,12 +25,8 @@
 }
 
 .dishes-types button:hover {
-  //margin: 0.5em;
-  //padding: 0.5em;
   background: #d29c27;
   border: #d29c27;
-  //color: blue;
-  //border-radius: 0.2em;
 }
 table, th, td{
   border: 1px solid black;

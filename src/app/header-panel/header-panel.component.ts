@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderPanelComponent implements OnInit {
 
-  name: 'Michalangelo Pizzeria';
+  appName: 'Michalangelo Pizzeria';
   constructor() { }
 
   ngOnInit() {

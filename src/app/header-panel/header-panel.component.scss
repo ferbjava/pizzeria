@@ -4,6 +4,7 @@
   text-align:center;
   background: beige;
   margin: 2em;
+  min-width: 800px;
 }
 .title{
   width: 70%;
@@ -11,11 +12,12 @@
   border: 1px solid black;
 }
 .control{
-  //justify-self: flex-end;
   width: 20%;
+  min-width: 150px;
   display: inline;
   border: 1px solid black;
 }
 .control-button{
   border-radius: 25px;
+  min-width: 50px;
 }
