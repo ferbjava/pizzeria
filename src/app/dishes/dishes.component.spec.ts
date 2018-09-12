@@ -2,7 +2,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DishesComponent} from './dishes.component';
 import {HttpClient, HttpHandler} from '@angular/common/http';
-import {DishesService} from './dishes.service';
 import {DishesTypes} from '../models/dishes-types';
 
 describe('DishesComponent', () => {
@@ -30,17 +29,13 @@ describe('DishesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should run "getDish" method', () => {
+  it('should run "DishesComponent.getDish" method', () => {
     // arrange
-    const dishService = TestBed.get(DishesService);
-
-    const dComp = new DishesComponent(dishService);
     const someType: DishesTypes = DishesTypes.DRINK;
-    const getDishesByTypesSpy = spyOn(dComp, 'getDishesByType');
-    getDishesByTypesSpy.and.returnValue(null);
+    const getDishesByTypesSpy = spyOn(component, 'getDishesByType');
 
     // act
-    dComp.getDishesByType(someType);
+    component.getDishesByType(someType);
 
     // assert
     expect(getDishesByTypesSpy).toHaveBeenCalled();

@@ -11,7 +11,6 @@ import { Order } from '../models/order.model';
 export class DishesService {
 
   private dishesInCart: Dish[] = [];
-
   private dishesUrl = 'api/dishes';
   private ordersUrl = 'api/orders';
 
@@ -41,9 +40,5 @@ export class DishesService {
   removeFromCart(dish: Dish) {
     const index = this.dishesInCart.indexOf(dish);
     this.dishesInCart.splice(index, 1);
-  }
-
-  saveOrder(recentOrder: Order): void {
-    this.http.post(this.ordersUrl, recentOrder).subscribe();
   }
 }

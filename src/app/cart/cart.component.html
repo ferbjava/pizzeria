@@ -8,11 +8,13 @@
   </div>
   <table *ngIf="dishesInCart" class="table-dishes">
     <tr class="table-col-description">
+      <th class="column-id">No.</th>
       <th class="column-name">Name</th>
       <th class="column-desc">Description</th>
       <th class="column-price">Price</th>
     </tr>
-    <tr *ngFor="let dish of dishesInCart">
+    <tr *ngFor="let dish of dishesInCart; let i = index">
+      <td class="column-id">{{i+1}}</td>
       <td class="column-name">{{dish.name}}</td>
       <td class="column-desc">{{dish.description}}</td>
       <td class="column-price">{{dish.price}}</td>

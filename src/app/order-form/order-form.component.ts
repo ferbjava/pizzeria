@@ -1,22 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DishesService } from '../dishes/dishes.service';
+import { DishesService } from '../services/dishes.service';
 import { Dish } from '../models/dish.model';
 import { Order } from '../models/order.model';
 import { ClientData} from '../models/clientData.model';
+import { OrdersService} from '../services/orders.service';
+import { Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-order-form',
   templateUrl: './order-form.component.html',
   styleUrls: ['./order-form.component.scss']
 })
-export class OrderFormComponent implements OnInit {
+export class OrderFormComponent implements OnInit, OnDestroy {
 
+  private readonly destroy$ = new Subject();
   orderedDishes: Dish[] = [];
   dishesId: number[] = [];
-  recentOrder = new Order();
+  rawOrder = new Order();
+  savedOrder = new Order();
 
-  clData: ClientData;
+  // clData: ClientData;
   clientData = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', Validators.required),
@@ -29,7 +34,8 @@ export class OrderFormComponent implements OnInit {
   });
 
   constructor(
-    private readonly service: DishesService,
+    private readonly dishService: DishesService,
+    private readonly orderService: OrdersService
   ) { }
 
   ngOnInit() {
@@ -37,24 +43,33 @@ export class OrderFormComponent implements OnInit {
   }
 
   loadDishesFromCart() {
-    this.orderedDishes = this.service.getDishesFromCart();
-    this.convertDishesToId(this.orderedDishes);
+    this.orderedDishes = this.dishService.getDishesFromCart();
+    this.dishesId = this.convertDishesToId(this.orderedDishes);
   }
 
-  onSubmit() {
-    this.recentOrder.dishIds = this.dishesId;
-    this.service.saveOrder(this.recentOrder);
+  saveOrder() {
+    this.rawOrder.dishIds = this.dishesId;
+    this.orderService.saveOrder(this.rawOrder)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => this.savedOrder = res);
     // this.clData = this.clientData.value;
     this.orderedDishes = [];
     this.dishesId = [];
     this.clientData.reset();
   }
 
-  private convertDishesToId(dishes: Dish[]) {
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  // private methods
+  private convertDishesToId(dishes: Dish[]): number[] {
+    let ids: number[];
+    ids = [];
     for (let i = 0; i < dishes.length; i++) {
-      this.dishesId[i] = dishes[i].id;
+      ids.push(dishes[i].id);
     }
+    return ids;
   }
 }
-
-

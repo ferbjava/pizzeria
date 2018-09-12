@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrderFormComponent } from './order-form.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('OrderFormComponent', () => {
   let component: OrderFormComponent;
@@ -8,7 +10,9 @@ describe('OrderFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderFormComponent ]
+      imports: [ReactiveFormsModule, FormsModule],
+      declarations: [ OrderFormComponent ],
+      providers: [ HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
