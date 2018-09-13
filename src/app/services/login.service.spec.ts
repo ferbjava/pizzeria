@@ -2,7 +2,6 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { LoginService } from './login.service';
 import {HttpClient, HttpHandler} from '@angular/common/http';
-import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 
 describe('LoginService', () => {

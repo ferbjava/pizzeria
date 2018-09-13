@@ -14,6 +14,8 @@
       <td class="column-desc">{{dish.description}}</td>
       <td class="column-price">{{dish.price}}</td>
       <td class="column-availability">
+        <img *ngIf="dish.isAvailable" src="assets/true.png" width="20" height="20">
+        <img *ngIf="!dish.isAvailable" src="assets/false.png" width="20" height="20">
         {{dish.isAvailable}}
       </td>
       <td class="column-order">

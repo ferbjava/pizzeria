@@ -1,5 +1,4 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {DishesComponent} from './dishes.component';
 import {HttpClient, HttpHandler} from '@angular/common/http';
 import {By} from '@angular/platform-browser';
@@ -35,7 +34,7 @@ describe('DishesComponent', () => {
 
   it('should run "DishesComponent.getDish" method', () => {
     // arrange
-    const clickedButton = componentDe.query(By.css('#button01'));
+    const clickedButton = componentDe.query(By.css('button01'));
     console.log(clickedButton);
     const getDishesByTypesSpy = spyOn(component, 'getDishesByType');
 

@@ -1,5 +1,10 @@
 <div>
   <div>Id: {{order.id}}</div>
   <div>Name: {{order.dishIds}}</div>
-  <button (click)="updateOrder()"> Update details</button>
+  <div>Status: {{order.orderStatus}}</div>
+  <select [formControl]="recentStatus">
+    <option *ngFor=" let key of keys" [value]="key">{{statuses[key]}}
+    </option>
+  </select>
+  <button (click)="updateOrder()">Update details</button>
 </div>

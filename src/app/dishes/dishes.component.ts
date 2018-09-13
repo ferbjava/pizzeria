@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {DishesService} from '../services/dishes.service';
 import {Dish} from '../models/dish.model';
-import {DishesTypes} from '../models/dishes-types';
+import {DishesTypes} from '../enums/dishes-types';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 

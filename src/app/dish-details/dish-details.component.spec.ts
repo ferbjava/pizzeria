@@ -2,10 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DishDetailsComponent } from './dish-details.component';
 import {HttpClient, HttpHandler} from '@angular/common/http';
+import {Dish} from '../models/dish.model';
 
 describe('DishDetailsComponent', () => {
   let component: DishDetailsComponent;
   let fixture: ComponentFixture<DishDetailsComponent>;
+  let expectedDish;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,7 +22,9 @@ describe('DishDetailsComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DishDetailsComponent);
+    expectedDish = new Dish();
     component = fixture.componentInstance;
+    component.dish = expectedDish;
     fixture.detectChanges();
   });
 

@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DishesService } from '../services/dishes.service';
-import { Dish } from '../models/dish.model';
-import { Order } from '../models/order.model';
-import { ClientData} from '../models/clientData.model';
-import { OrdersService} from '../services/orders.service';
-import { Subject} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {DishesService} from '../services/dishes.service';
+import {Dish} from '../models/dish.model';
+import {Order} from '../models/order.model';
+import {OrdersService} from '../services/orders.service';
+import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {OrderStatus} from '../enums/order-status';
 
 @Component({
   selector: 'app-order-form',
@@ -20,6 +20,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   dishesId: number[] = [];
   rawOrder = new Order();
   savedOrder = new Order();
+  isConfirmed: boolean;
 
   // clData: ClientData;
   clientData = new FormGroup({
@@ -40,6 +41,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadDishesFromCart();
+    this.isConfirmed = false;
   }
 
   loadDishesFromCart() {
@@ -47,16 +49,18 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     this.dishesId = this.convertDishesToId(this.orderedDishes);
 }
 
-saveOrder() {
-  this.rawOrder.dishIds = this.dishesId;
-  this.orderService.saveOrder(this.rawOrder)
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(res => this.savedOrder = res);
-  // this.clData = this.clientData.value;
-  this.orderedDishes = [];
-  this.dishesId = [];
-  this.clientData.reset();
-}
+  saveOrder() {
+    this.rawOrder.dishIds = this.dishesId;
+    this.rawOrder.orderStatus = OrderStatus.ACCEPTED;
+    this.orderService.saveOrder(this.rawOrder)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => this.savedOrder = res);
+    // this.clData = this.clientData.value;
+    this.orderedDishes = [];
+    this.dishesId = [];
+    this.clientData.reset();
+    this.isConfirmed = true;
+  }
 
   ngOnDestroy(): void {
     this.destroy$.next();

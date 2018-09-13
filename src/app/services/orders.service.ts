@@ -21,4 +21,8 @@ export class OrdersService {
   saveOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(this.ordersUrl, order);
   }
+
+  updateOrder(order: Order): Observable<Order> {
+    return this.http.put<Order>(`${this.ordersUrl}/${order.id}`, order);
+  }
 }

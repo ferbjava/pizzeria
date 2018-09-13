@@ -11,7 +11,7 @@
     {
       "id": 2,
       "name": "Pizza Funghi",
-      "isAvailable": true,
+      "isAvailable": false,
       "description": "Sos, ser, pieczarki",
       "type": "pizza",
       "price": "23.50"
@@ -27,7 +27,7 @@
     {
       "id": 4,
       "name": "Spagetti Bolognese",
-      "isAvailable": false,
+      "isAvailable": true,
       "description": "Sos boloński",
       "type": "spagetti",
       "price": "14"
@@ -60,27 +60,38 @@
   "orders": [
     {
       "id": 1,
+      "orderStatus": "ACCEPTED",
       "dishIds": [
         1,
         5
       ]
     },
     {
+      "id": 2,
+      "orderStatus": "ON_HOLD",
       "dishIds": [
         1,
         2,
         2
-      ],
-      "id": 2
+      ]
     },
     {
+      "id": 3,
+      "orderStatus": "FINISHED",
       "dishIds": [
         1,
         2,
         2,
         5
+      ]
+    },
+    {
+      "dishIds": [
+        2,
+        2
       ],
-      "id": 3
+      "orderStatus": "ACCEPTED",
+      "id": 4
     }
   ],
   "users": [

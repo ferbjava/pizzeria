@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ManageDishesComponent } from './manage-dishes.component';
+import {DishDetailsComponent} from '../dish-details/dish-details.component';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('ManageDishesComponent', () => {
   let component: ManageDishesComponent;
@@ -8,7 +10,8 @@ describe('ManageDishesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageDishesComponent ]
+      declarations: [ ManageDishesComponent, DishDetailsComponent ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

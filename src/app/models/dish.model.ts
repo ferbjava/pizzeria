@@ -1,4 +1,4 @@
-import {DishesTypes} from './dishes-types';
+import {DishesTypes} from '../enums/dishes-types';
 
 export class Dish {
   id: number;

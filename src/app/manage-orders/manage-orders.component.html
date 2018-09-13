@@ -2,11 +2,13 @@
   <table *ngIf="isTableVisible" class="table-orders">
     <tr class="table-col-description">
       <th class="column-id">No</th>
+      <th class="column-status">Status</th>
       <th class="column-dishes">List of dishes</th>
       <th class="column-edition">Edition</th>
     </tr>
     <tr *ngFor="let order of allOrders">
       <td class="column-id">{{order.id}}</td>
+      <td class="column-status">{{order.orderStatus}}</td>
       <td class="column-dishes">{{order.dishIds}}</td>
       <td class="column-order">
         <button (click)="showOrderDetails(order.id)"> Show details</button>
