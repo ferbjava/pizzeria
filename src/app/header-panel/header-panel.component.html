@@ -1,13 +1,16 @@
 <div class="header">
   <span class="title">
-    Welcome to Michalangelo Pizzeria!
+    Welcome to {{title}}!
   </span>
   <span class="control">
-    <button class="control-button" routerLink="/cart">
+    <button *ngIf="!isAdminLogged" class="control-button" routerLink="/cart">
       <img src="assets/cart.png" width="50" height="50">
     </button>
-    <button class="control-button" routerLink="/login">
+    <button *ngIf="!isAdminLogged" class="control-button" routerLink="/login">
       <img src="assets/login-old.png" width="50" height="50">
+    </button>
+    <button *ngIf="isAdminLogged" class="control-button" routerLink="/dishes">
+      <img src="assets/logout.png" width="50" height="50">
     </button>
   </span>
 </div>

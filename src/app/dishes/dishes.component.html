@@ -1,8 +1,8 @@
 <div class="dishes-container">
   <div class="dishes-types">
-    <button (click)="getDishesByType(typePizza)">Pizza</button>
-    <button (click)="getDishesByType(typeSpaghetti)">Pasta</button>
-    <button (click)="getDishesByType(typeDrink)">Drink</button>
+    <button (click)="getDishesByType(typePizza)" id="button01">Pizza</button>
+    <button (click)="getDishesByType(typeSpaghetti)" id="button02">Pasta</button>
+    <button (click)="getDishesByType(typeDrink)" id="button03">Drink</button>
   </div>
   <table *ngIf="dishes" class="table-dishes">
     <tr class="table-col-description">

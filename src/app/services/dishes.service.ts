@@ -3,7 +3,6 @@ import { Observable} from 'rxjs';
 import { Dish} from '../models/dish.model';
 import { HttpClient} from '@angular/common/http';
 import { DishesTypes} from '../models/dishes-types';
-import { Order } from '../models/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +11,12 @@ export class DishesService {
 
   private dishesInCart: Dish[] = [];
   private dishesUrl = 'api/dishes';
-  private ordersUrl = 'api/orders';
 
   constructor(
     private readonly http: HttpClient,
     ) {}
 
-  getDishes(): Observable<Dish[]> {
+  getAllDishes(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes');
   }
 

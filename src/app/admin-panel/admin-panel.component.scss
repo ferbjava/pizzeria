@@ -1,0 +1,56 @@
+.admin-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 800px;
+  background: beige;
+  margin: 50px;
+  padding: 50px;
+}
+
+.admin-actions{
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  width: 100%;
+  min-width: 800px;
+  align-content: center;
+}
+
+.admin-actions button {
+  justify-self: center;
+  font-size: 2em;
+  width: 30%;
+  margin: 0.5em;
+  padding: 0.5em;
+  background: chocolate;
+  border: chocolate;
+  color: blue;
+  border-radius: 25px;
+}
+
+.admin-actions button:hover {
+  background: #d29c27;
+  border: #d29c27;
+}
+table, th, td{
+  border: 1px solid black;
+}
+.table-dishes{
+  width: 100%;
+}
+.column-id{
+  width: 15%;
+}
+.column-name{
+  width: 10%;
+}
+.column-desc{
+  width: 50%;
+}
+.column-price{
+  width: 10%;
+}
+.column-order{
+  width: 15%;
+}

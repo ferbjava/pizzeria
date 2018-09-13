@@ -23,13 +23,6 @@ export class DishesComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.loadDishes();
-  }
-
-  private loadDishes() {
-    this.service.getDishes()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => this.dishes = res);
   }
 
   getDishesByType(type: DishesTypes) {

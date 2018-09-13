@@ -1,0 +1,30 @@
+.dishes-container {
+  display: flex;
+  justify-content: center;
+  min-width: 800px;
+  background: beige;
+}
+table, th, td{
+  border: 1px solid black;
+}
+.table-dishes{
+  width: 100%;
+}
+.column-id{
+  width: 5%;
+}
+.column-name{
+  width: 10%;
+}
+.column-desc{
+  width: 50%;
+}
+.column-price{
+  width: 10%;
+}
+.column-availability{
+  width: 10%;
+}
+.column-edition{
+  width: 15%;
+}

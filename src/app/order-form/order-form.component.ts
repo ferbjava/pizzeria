@@ -45,18 +45,18 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   loadDishesFromCart() {
     this.orderedDishes = this.dishService.getDishesFromCart();
     this.dishesId = this.convertDishesToId(this.orderedDishes);
-  }
+}
 
-  saveOrder() {
-    this.rawOrder.dishIds = this.dishesId;
-    this.orderService.saveOrder(this.rawOrder)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => this.savedOrder = res);
-    // this.clData = this.clientData.value;
-    this.orderedDishes = [];
-    this.dishesId = [];
-    this.clientData.reset();
-  }
+saveOrder() {
+  this.rawOrder.dishIds = this.dishesId;
+  this.orderService.saveOrder(this.rawOrder)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(res => this.savedOrder = res);
+  // this.clData = this.clientData.value;
+  this.orderedDishes = [];
+  this.dishesId = [];
+  this.clientData.reset();
+}
 
   ngOnDestroy(): void {
     this.destroy$.next();
