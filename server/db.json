@@ -92,6 +92,13 @@
       ],
       "orderStatus": "ACCEPTED",
       "id": 4
+    },
+    {
+      "dishIds": [
+        4
+      ],
+      "orderStatus": "accepted",
+      "id": 5
     }
   ],
   "users": [

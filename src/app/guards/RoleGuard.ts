@@ -6,7 +6,14 @@ import {LoginService} from '../services/login.service';
 export class RoleGuard implements CanActivate {
   constructor(private readonly role: LoginService) {}
 
+  isLogged: boolean;
+  message = 'Please authenticate to get access to this page!!!';
+
   canActivate() {
-    return this.role.getLoginStatus();
+    this.isLogged = this.role.getLoginStatus();
+    if(!this.isLogged) {
+      window.alert(this.message);
+    }
+    return this.isLogged;
   }
 }

@@ -23,10 +23,11 @@ export class LoginService {
     return this.http.get<User>(`${this.usersUrl}/${id}`);
   }
 
-  validateLogin(user: User, userInDb: User): void {
+  validateLogin(user: User, userInDb: User): boolean {
     if (user.name === userInDb.name && user.password === userInDb.password) {
       this.router.navigate([this.adminUrl]);
       this.isLogged = true;
+      return this.isLogged;
     }
   }
 

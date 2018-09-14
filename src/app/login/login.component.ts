@@ -13,6 +13,7 @@ import {takeUntil} from 'rxjs/operators';
 export class LoginComponent implements OnInit, OnDestroy {
 
   private readonly destroy$ = new Subject();
+  private message = 'Invalid User or Password!';
   user: User;
   userInDB: User;
 
@@ -37,7 +38,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   logIn() {
     this.user = this.loginForm.value;
-    this.loginService.validateLogin(this.user, this.userInDB);
+    if (!this.loginService.validateLogin(this.user, this.userInDB)) {
+      window.alert(this.message);
+      this.loginForm.reset();
+    }
   }
 
   ngOnDestroy(): void {
