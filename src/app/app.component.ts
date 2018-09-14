@@ -6,9 +6,13 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  isAdmin = false;
+  // isAdminLogged = false;
   title = 'Michalangelo Pizzeria';
 
   constructor(
   ) {}
+
+  // onLogged(emiter: boolean) {
+  //   emiter ? this.isAdminLogged = true : this.isAdminLogged = false;
+  // }
 }

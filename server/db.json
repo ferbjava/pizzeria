@@ -19,7 +19,7 @@
     {
       "id": 3,
       "name": "Pizza Havai",
-      "isAvailable": true,
+      "isAvailable": false,
       "description": "Ulubiona przez wszystkich pizza!",
       "type": "pizza",
       "price": "13.90"
@@ -68,7 +68,7 @@
     },
     {
       "id": 2,
-      "orderStatus": "ON_HOLD",
+      "orderStatus": "FINISHED",
       "dishIds": [
         1,
         2,

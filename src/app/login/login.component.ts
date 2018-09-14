@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { User } from '../models/user.model';
@@ -13,9 +13,8 @@ import {takeUntil} from 'rxjs/operators';
 export class LoginComponent implements OnInit, OnDestroy {
 
   private readonly destroy$ = new Subject();
-  isAdmin = false;
   user: User;
-  loggedUser: User;
+  userInDB: User;
 
   loginForm = new FormGroup( {
     name: new FormControl('', Validators.required),
@@ -33,12 +32,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   private getUsers(): void {
     this.loginService.getUser()
       .pipe(takeUntil(this.destroy$))
-      .subscribe(res => this.loggedUser = res);
+      .subscribe(res => this.userInDB = res);
   }
 
-  login() {
+  logIn() {
     this.user = this.loginForm.value;
-    this.isAdmin = this.loginService.validateLogin(this.user, this.loggedUser);
+    this.loginService.validateLogin(this.user, this.userInDB);
   }
 
   ngOnDestroy(): void {

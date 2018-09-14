@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-header-panel',
@@ -8,11 +9,19 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeaderPanelComponent implements OnInit {
 
   @Input() title: string;
-  @Input() isAdminLogged: boolean;
 
   constructor(
+    private readonly loginService: LoginService
   ) {}
 
   ngOnInit() {
+  }
+
+  loginStatus(): boolean {
+    return this.loginService.getLoginStatus();
+  }
+
+  logOut(): void {
+    this.loginService.logOut();
   }
 }

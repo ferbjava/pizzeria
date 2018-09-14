@@ -11,6 +11,7 @@ export class LoginService {
 
   private usersUrl = 'api/users';
   private adminUrl = `/administration`;
+  private isLogged = false;
 
   constructor(
     private readonly http: HttpClient,
@@ -22,12 +23,18 @@ export class LoginService {
     return this.http.get<User>(`${this.usersUrl}/${id}`);
   }
 
-  validateLogin(user: User, loggedUser: User): boolean {
-    if (user.name === loggedUser.name && user.password === loggedUser.password) {
+  validateLogin(user: User, userInDb: User): void {
+    if (user.name === userInDb.name && user.password === userInDb.password) {
       this.router.navigate([this.adminUrl]);
-      return true;
-    } else {
-      return false;
+      this.isLogged = true;
     }
+  }
+
+  logOut(): void {
+    this.isLogged = false;
+  }
+
+  getLoginStatus(): boolean {
+    return this.isLogged;
   }
 }
