@@ -5,6 +5,7 @@ import { CartComponent} from './cart/cart.component';
 import { OrderFormComponent} from './order-form/order-form.component';
 import {LoginComponent} from './login/login.component';
 import {AdminPanelComponent} from './admin-panel/admin-panel.component';
+import {RoleGuard} from './guards/RoleGuard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dishes', pathMatch: 'full'},
@@ -12,11 +13,12 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent},
   { path: 'order', component: OrderFormComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'administration', component: AdminPanelComponent}
+  { path: 'administration', component: AdminPanelComponent, canActivate: [RoleGuard] }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [RoleGuard],
 })
 export class AppRoutingModule { }

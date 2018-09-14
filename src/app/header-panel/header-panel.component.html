@@ -1,17 +1,17 @@
 <div class="header">
-  <span class="title">
+  <span class="title" routerLink="/dishes">
     Welcome to {{title}}!
   </span>
   <span class="control">
-    <button *ngIf="!loginStatus()" class="control-button" routerLink="/cart">
-      <img src="assets/cart.png" width="50" height="50">
-    </button>
-    <button *ngIf="!loginStatus()" class="control-button" routerLink="/login">
-      <img src="assets/login-old.png" width="50" height="50">
-    </button>
-    <span *ngIf="loginStatus()">Welcome Admin1</span>
-    <button *ngIf="loginStatus()" class="control-button" (click)="logOut()" routerLink="/dishes">
-      <img src="assets/logout.png" width="50" height="50">
-    </button>
+    <!--<button *ngIf="!loginStatus()" class="control-button" routerLink="/cart">-->
+      <img *ngIf="!loginStatus()" src="assets/cart.png" width="50" height="50" routerLink="/cart">
+    <!--</button>-->
+    <!--<button *ngIf="!loginStatus()" class="control-button" routerLink="/login">-->
+      <img *ngIf="!loginStatus()" src="assets/login-old.png" width="50" height="50" routerLink="/login">
+    <!--</button>-->
+    <span *ngIf="loginStatus()">Welcome Admin!</span>
+    <!--<button *ngIf="loginStatus()" class="control-button" (click)="logOut()" routerLink="/dishes">-->
+      <img *ngIf="loginStatus()" src="assets/logout.png" width="50" height="50" (click)="logOut()" routerLink="/dishes">
+    <!--</button>-->
   </span>
 </div>

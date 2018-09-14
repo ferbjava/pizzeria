@@ -11,8 +11,4 @@ export class AppComponent {
 
   constructor(
   ) {}
-
-  // onLogged(emiter: boolean) {
-  //   emiter ? this.isAdminLogged = true : this.isAdminLogged = false;
-  // }
 }
