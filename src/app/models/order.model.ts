@@ -7,7 +7,9 @@ export class Order {
   dishIds: number[];
   deliveryData: DeliveryData;
 
-  constructor() {
-    this.dishIds = [];
+  constructor(dishIds: number[], status: OrderStatus, data: DeliveryData) {
+    this.dishIds = dishIds;
+    this.orderStatus = status;
+    this.deliveryData = data;
   }
 }

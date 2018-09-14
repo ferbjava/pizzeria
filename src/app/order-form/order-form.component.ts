@@ -19,12 +19,11 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject();
   orderedDishes: Dish[] = [];
   dishesId: number[] = [];
-  rawOrder = new Order();
-  savedOrder = new Order();
+  rawOrder: Order;
+  savedOrder: Order;
   isConfirmed: boolean;
 
   deliveryData: DeliveryData;
-  savedData: DeliveryData;
 
   deliveryForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -54,30 +53,22 @@ export class OrderFormComponent implements OnInit, OnDestroy {
 }
 
   saveOrder() {
-    this.rawOrder.dishIds = this.dishesId;
-    this.rawOrder.orderStatus = OrderStatus.ACCEPTED;
-    this.rawOrder.deliveryData = this.deliveryForm.value;
+    this.deliveryData = this.deliveryForm.value;
+    this.deliveryData.date = this.deliveryForm.get('date').value;
+    this.rawOrder = new Order(this.dishesId, OrderStatus.ACCEPTED, this.deliveryData);
     this.orderService.saveOrder(this.rawOrder)
       .pipe(takeUntil(this.destroy$))
       .subscribe(res => this.savedOrder = res);
     this.isConfirmed = true;
-    // this.deliveryData = this.deliveryForm.value;
-    // this.orderService.saveDeliveryData(this.deliveryData)
-    //   .pipe(takeUntil(this.destroy$))
-    //   .subscribe(res => this.savedData = res);
     this.clearDeliveryForm();
   }
 
   getRecentDateAndTime(): string {
     const recentDate = new Date();
-    let month = recentDate.getMonth().toString();
-    month = month.length > 1 ? month : '0'.concat(month);
-    let day = recentDate.getDate().toString();
-    day = day.length > 1 ? day : '0'.concat(day);
-    let hours = recentDate.getHours().toString();
-    hours = hours.length > 1 ? hours : '0'.concat(hours);
-    let minutes = recentDate.getMinutes().toString();
-    minutes = minutes.length > 1 ? minutes : '0'.concat(minutes);
+    const month = this.addZeroToShortString((recentDate.getMonth() + 1).toString());
+    const day = this.addZeroToShortString(recentDate.getDate().toString());
+    const hours = this.addZeroToShortString(recentDate.getHours().toString());
+    const minutes = this.addZeroToShortString(recentDate.getMinutes().toString());
     let dateString: string;
     dateString = recentDate.getFullYear().toString()
       .concat('-').concat(month)
@@ -106,5 +97,9 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     this.orderedDishes = [];
     this.dishesId = [];
     this.deliveryForm.reset();
+  }
+
+  private addZeroToShortString(str: string): string {
+    return str.length > 1 ? str : '0'.concat(str);
   }
 }

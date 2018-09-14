@@ -8,5 +8,5 @@ export class DeliveryData {
   street: string;
   local: string;
   flat: string;
-  date: object;
+  date: string;
 }

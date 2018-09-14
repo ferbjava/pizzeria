@@ -23,7 +23,7 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadOrders();
-    this.selectedOrder = new Order();
+    // this.selectedOrder = new Order();
   }
 
   loadOrders() {

@@ -1,6 +1,10 @@
 <div>
   <div>Id: {{order.id}}</div>
-  <div>Name: {{order.dishIds}}</div>
+  <div>List of dishes: {{order.dishIds}}</div>
+  <div>Order placed at {{order.deliveryData.date}}</div>
+  <div>Delivery address:</div>
+  <div>City: {{order.deliveryData.city}}</div>
+  <div>Street: {{order.deliveryData.street}}</div>
   <div>Status: {{order.orderStatus}}</div>
   <select [formControl]="recentStatus">
     <option *ngFor=" let key of keys" [value]="key">{{statuses[key]}}
