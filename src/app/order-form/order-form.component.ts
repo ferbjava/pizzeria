@@ -7,6 +7,7 @@ import {OrdersService} from '../services/orders.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {OrderStatus} from '../enums/order-status';
+import {DeliveryData} from '../models/deliveryData.model';
 
 @Component({
   selector: 'app-order-form',
@@ -22,8 +23,10 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   savedOrder = new Order();
   isConfirmed: boolean;
 
-  // clData: ClientData;
-  clientData = new FormGroup({
+  deliveryData: DeliveryData;
+  savedData: DeliveryData;
+
+  deliveryForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', Validators.required),
     telephone: new FormControl('', [Validators.required]),
@@ -31,7 +34,8 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     city: new FormControl('', Validators.required),
     street: new FormControl('', Validators.required),
     localNumber: new FormControl('', Validators.required),
-    flatNumber: new FormControl('', Validators.required)
+    flatNumber: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required)
   });
 
   constructor(
@@ -52,14 +56,35 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   saveOrder() {
     this.rawOrder.dishIds = this.dishesId;
     this.rawOrder.orderStatus = OrderStatus.ACCEPTED;
+    this.rawOrder.deliveryData = this.deliveryForm.value;
     this.orderService.saveOrder(this.rawOrder)
       .pipe(takeUntil(this.destroy$))
       .subscribe(res => this.savedOrder = res);
-    // this.clData = this.clientData.value;
-    this.orderedDishes = [];
-    this.dishesId = [];
-    this.clientData.reset();
     this.isConfirmed = true;
+    // this.deliveryData = this.deliveryForm.value;
+    // this.orderService.saveDeliveryData(this.deliveryData)
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe(res => this.savedData = res);
+    this.clearDeliveryForm();
+  }
+
+  getRecentDateAndTime(): string {
+    const recentDate = new Date();
+    let month = recentDate.getMonth().toString();
+    month = month.length > 1 ? month : '0'.concat(month);
+    let day = recentDate.getDate().toString();
+    day = day.length > 1 ? day : '0'.concat(day);
+    let hours = recentDate.getHours().toString();
+    hours = hours.length > 1 ? hours : '0'.concat(hours);
+    let minutes = recentDate.getMinutes().toString();
+    minutes = minutes.length > 1 ? minutes : '0'.concat(minutes);
+    let dateString: string;
+    dateString = recentDate.getFullYear().toString()
+      .concat('-').concat(month)
+      .concat('-').concat(day)
+      .concat('T').concat(hours)
+      .concat(':').concat(minutes);
+    return dateString;
   }
 
   ngOnDestroy(): void {
@@ -75,5 +100,11 @@ export class OrderFormComponent implements OnInit, OnDestroy {
       ids.push(dishes[i].id);
     }
     return ids;
+  }
+
+  private clearDeliveryForm() {
+    this.orderedDishes = [];
+    this.dishesId = [];
+    this.deliveryForm.reset();
   }
 }

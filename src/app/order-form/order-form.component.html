@@ -18,7 +18,7 @@
     </div>
 
     <div class="order-form">Fill form below (all fields are required!)<br><br>
-      <form [formGroup] = "clientData" (ngSubmit)="saveOrder()">
+      <form [formGroup] = "deliveryForm" (ngSubmit)="saveOrder()">
         <label for="orderFName">First Name:</label>
         <input type="text" id="orderFName" formControlName="firstName">
         <br>
@@ -43,7 +43,10 @@
         <label for="orderFlat">Flat Number:</label>
         <input type="text" id="orderFlat" formControlName="flatNumber">
         <br>
-        <button type="submit" [disabled]="!clientData.valid"> Send Order!</button>
+        <label for="date">Date: </label>
+        <input type="datetime-local" id="date" formControlName="date" [value]="getRecentDateAndTime()" [min]="getRecentDateAndTime()">
+        <br>
+        <button type="submit" [disabled]="!deliveryForm.valid" > Send Order!</button>
       </form>
       <div *ngIf="isConfirmed">
         Your order is successfully confirmed! Number of order: {{savedOrder.id}}

@@ -1,4 +1,4 @@
-export class ClientData {
+export class DeliveryData {
   id: number;
   firstName: string;
   lastName: string;
@@ -8,4 +8,5 @@ export class ClientData {
   street: string;
   local: string;
   flat: string;
+  date: object;
 }
