@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DishDetailsComponent } from './dish-details.component';
 import {HttpClient, HttpHandler} from '@angular/common/http';
 import {Dish} from '../models/dish.model';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 describe('DishDetailsComponent', () => {
   let component: DishDetailsComponent;
@@ -11,11 +12,9 @@ describe('DishDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule, FormsModule],
       declarations: [ DishDetailsComponent ],
-      providers: [
-        HttpClient,
-        HttpHandler
-      ]
+      providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();
   }));

@@ -12,10 +12,7 @@ describe('DishesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DishesComponent ],
-      providers: [
-        HttpClient,
-        HttpHandler
-      ]
+      providers: [ HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
@@ -34,7 +31,7 @@ describe('DishesComponent', () => {
 
   it('should run "DishesComponent.getDish" method', () => {
     // arrange
-    const clickedButton = componentDe.query(By.css('button01'));
+    const clickedButton = componentDe.query(By.css('#button01'));
     console.log(clickedButton);
     const getDishesByTypesSpy = spyOn(component, 'getDishesByType');
 
