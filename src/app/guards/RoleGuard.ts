@@ -11,7 +11,7 @@ export class RoleGuard implements CanActivate {
 
   canActivate() {
     this.isLogged = this.role.getLoginStatus();
-    if(!this.isLogged) {
+    if (!this.isLogged) {
       window.alert(this.message);
     }
     return this.isLogged;

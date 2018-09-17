@@ -78,4 +78,33 @@ describe('DishesService', () => {
     expect(service.getDishesFromCart().length).toBe(0);
   }));
 
+  it('should clear Cart', inject([DishesService], (service: DishesService) => {
+    // arrange
+    const testDish01 = <Dish>{};
+    const testDish02 = <Dish>{};
+    service.addDishToCart(testDish01);
+    service.addDishToCart(testDish02);
+
+    // act
+    service.clearCart();
+
+    // assets
+    expect(service.getDishesFromCart().length).toBe(0);
+  }));
+
+  it('should calculate total price od dishes', inject([DishesService], (service: DishesService) => {
+    // arrange
+    const testDish01 = new Dish();
+    testDish01.price = 10.0;
+    const testDish02 = new Dish();
+    testDish02.price = 20.0;
+
+    // act
+    service.addDishToCart(testDish01);
+    service.addDishToCart(testDish02);
+
+    // assets
+    expect(service.calculateTotalPrice()).toBe(30.0);
+  }));
+
 });

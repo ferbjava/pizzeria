@@ -52,6 +52,16 @@ label{
   margin: 0.2em;
 }
 
+// dish preview styles
+.preview{
+  border: 1px #FFE3C6 solid;
+  background-color: #FFE3C6;
+  width: 60%;
+}
+.preview td, th{
+  border: 1px #FFE3C6 solid;
+}
+
 // manage-orders styles
 .order-details{
   min-width: auto;

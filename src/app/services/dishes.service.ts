@@ -24,6 +24,10 @@ export class DishesService {
     return this.http.get<Dish[]>(`${this.dishesUrl}/?type=${type}&&isAvailable=true`);
   }
 
+  getDishById(id: number): Observable<Dish> {
+    return this.http.get<Dish>(`${this.dishesUrl}/${id}`);
+  }
+
   addDishToCart(dish: Dish): void {
     this.dishesInCart.push(dish);
     this.dishesInCart.sort(function (a, b) {

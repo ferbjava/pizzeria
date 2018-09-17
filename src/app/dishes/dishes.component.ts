@@ -22,16 +22,16 @@ export class DishesComponent implements OnInit, OnDestroy {
     private service: DishesService,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  getDishesByType(type: DishesTypes) {
+  getDishesByType(type: DishesTypes): void {
     this.service.getDishesByType(type)
       .pipe(takeUntil(this.destroy$))
       .subscribe(res => this.dishes = res);
   }
 
-  addToCart(dish: Dish) {
+  addToCart(dish: Dish): void {
     this.service.addDishToCart(dish);
   }
 

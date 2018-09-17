@@ -5,6 +5,7 @@ import {HttpClient, HttpHandler} from '@angular/common/http';
 import {Order} from '../models/order.model';
 import {OrderStatus} from '../enums/order-status';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DishPreviewComponent} from '../dish-preview/dish-preview.component';
 
 describe('OrderDetailsComponent', () => {
   let component: OrderDetailsComponent;
@@ -14,7 +15,7 @@ describe('OrderDetailsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule],
-      declarations: [OrderDetailsComponent],
+      declarations: [OrderDetailsComponent, DishPreviewComponent],
       providers: [HttpClient, HttpHandler]
     })
       .compileComponents();

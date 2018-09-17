@@ -21,14 +21,20 @@
       <td>{{order.deliveryData.email}}</td>
     </tr>
     <tr>
-      <td>List of dishes:</td>
-      <td>{{order.dishIds}}</td>
+      <td colspan="2">
+        <b> List of dishes:</b>
+      </td>
     </tr>
     <tr>
-      <td>Delivery address:</td>
+      <td colspan="2">
+        <app-dish-preview [orderedDishes]="orderedDishes"></app-dish-preview>
+      </td>
     </tr>
     <tr>
-      <td>City and street: </td>
+      <td colspan="2"><b> Delivery address:</b></td>
+    </tr>
+    <tr>
+      <td>City and street:</td>
       <td>{{order.deliveryData.city}}, {{order.deliveryData.street}}</td>
     </tr>
     <tr>
@@ -49,11 +55,5 @@
       <td></td>
     </tr>
   </table>
-  <div></div>
-  <div> </div>
-  <div> </div>
-  <div></div>
-  <div></div>
-  <div></div>
   <button class="table-button" (click)="updateOrder()">Update details</button>
 </div>

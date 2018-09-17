@@ -5,6 +5,8 @@ import {OrderStatus} from '../enums/order-status';
 import {FormControl} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {Dish} from '../models/dish.model';
+import {DishesService} from '../services/dishes.service';
 
 @Component({
   selector: 'app-order-details',
@@ -18,9 +20,11 @@ export class OrderDetailsComponent implements OnInit, OnChanges, OnDestroy {
   keys: any[];
   statuses = OrderStatus;
   recentStatus = new FormControl('');
+  orderedDishes = new Array<Dish>();
 
   constructor(
-    private readonly orderService: OrdersService
+    private readonly orderService: OrdersService,
+    private readonly dishesService: DishesService
   ) {
     this.keys = Object.keys(this.statuses).filter(String);
     }
@@ -30,6 +34,15 @@ export class OrderDetailsComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges() {
     this.recentStatus.setValue(this.order.orderStatus);
+    this.orderedDishes = [];
+    for (let i = 1; i <= this.order.dishIds.length; i++) {
+      this.dishesService.getDishById(this.order.dishIds[i - 1])
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(res => this.orderedDishes.push(res));
+    }
+    this.orderedDishes.sort(function (a, b) {
+      return a.id - b.id;
+    });
   }
 
   updateOrder(): void {

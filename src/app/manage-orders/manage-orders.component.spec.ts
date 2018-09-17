@@ -14,7 +14,7 @@ describe('ManageOrdersComponent', () => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule],
       declarations: [ ManageOrdersComponent, OrderDetailsComponent, OrderStatus],
-      providers: [HttpClient, HttpHandler] // , {provide: OrderDetailsComponent, useClass: MockOrderDetailsComponent}]
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
@@ -29,14 +29,3 @@ describe('ManageOrdersComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-// @Component({
-//   selector: 'app-order-details',
-//   template: ''
-// })
-// class MockOrderDetailsComponent {
-//   @Input() order: Order;
-//   keys: any[];
-//   statuses = OrderStatus;
-//   recentStatus = new FormControl('');
-// }

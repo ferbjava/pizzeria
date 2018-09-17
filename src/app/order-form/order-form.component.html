@@ -30,27 +30,35 @@
       <label for="orderFName">First Name:</label>
       <input type="text" id="orderFName" formControlName="firstName">
       <br>
+
       <label for="orderLName">Last Name:</label>
       <input type="text" id="orderLName" formControlName="lastName">
       <br>
+
       <label for="orderPhone">Telephone Number:</label>
-      <input type="tel" id="orderPhone" formControlName="telephone">
+      <input type="tel" id="orderPhone" formControlName="phone">
       <br>
+
       <label for="orderEmail">Email:</label>
       <input type="email" id="orderEmail" formControlName="email">
       <br>
+
       <label for="orderCity">City:</label>
       <input type="text" id="orderCity" formControlName="city">
       <br>
+
       <label for="orderStreet">Street:</label>
       <input type="text" id="orderStreet" formControlName="street">
       <br>
+
       <label for="orderLocal">Local Number:</label>
       <input type="text" id="orderLocal" formControlName="localNumber">
       <br>
+
       <label for="orderFlat">Flat Number:</label>
       <input type="text" id="orderFlat" formControlName="flatNumber">
       <br>
+
       <label for="date">Date: </label>
       <input type="datetime-local" id="date" formControlName="date" [value]="getRecentDateAndTime()"
              [min]="getRecentDateAndTime()">
@@ -58,7 +66,7 @@
       <button class="table-button" type="submit" [disabled]="!deliveryForm.valid"> Send Order!</button>
     </form>
     <div *ngIf="isConfirmed">
-      Your order is successfully confirmed! Number of order: {{savedOrder.id}}
+      Your order is accepted for implementation! Number of order: {{savedOrder.id}}
     </div>
   </div>
 </div>

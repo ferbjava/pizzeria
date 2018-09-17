@@ -96,7 +96,7 @@
       "deliveryData": {
         "firstName": "Adam",
         "lastName": "Nowak",
-        "telephone": "123456789",
+        "phone": "123456789",
         "email": "adam@qmail.com",
         "city": "Poznań",
         "street": "św. Marcina",
@@ -115,7 +115,7 @@
       "deliveryData": {
         "firstName": "Jan",
         "lastName": "Kowalski",
-        "telephone": "234567890",
+        "phone": "234567890",
         "email": "jan@gmail.com",
         "city": "Poznań",
         "street": "Garbary",
@@ -136,7 +136,7 @@
       "deliveryData": {
         "firstName": "Adam",
         "lastName": "Nowak",
-        "telephone": "123456789",
+        "phone": "123456789",
         "email": "adam@gmail.com",
         "city": "Poznań",
         "street": "św. Marcin",
@@ -160,7 +160,7 @@
       "deliveryData": {
         "firstName": "Dariusz",
         "lastName": "Wiśniewski",
-        "telephone": "456789012",
+        "phone": "456789012",
         "email": "darek@wp.pl",
         "city": "Poznań",
         "street": "Bułgarska",
@@ -180,7 +180,7 @@
       "deliveryData": {
         "firstName": "Anna",
         "lastName": "Nowak",
-        "telephone": "432109876",
+        "phone": "432109876",
         "email": "anula@zahoo.com",
         "city": "Poznań",
         "street": "Marcelińska",
@@ -200,7 +200,7 @@
       "deliveryData": {
         "firstName": "Grzegorz",
         "lastName": "Brzęczeszczykiewicz",
-        "telephone": "800800800",
+        "phone": "800800800",
         "email": "grzechu@wp.pl",
         "city": "Poznań",
         "street": "Głogowska",
@@ -221,7 +221,7 @@
       "deliveryData": {
         "firstName": "Adam",
         "lastName": "Nowak",
-        "telephone": "123456789",
+        "phone": "123456789",
         "email": "adam@wp.pl",
         "city": "Poznań",
         "street": "Główna",
@@ -230,6 +230,28 @@
         "date": "2018-09-17T22:47"
       },
       "id": 7
+    },
+    {
+      "dishIds": [
+        3,
+        4,
+        5,
+        11,
+        11
+      ],
+      "orderStatus": "accepted",
+      "deliveryData": {
+        "firstName": "Adam",
+        "lastName": "Nowak",
+        "phone": "321098765",
+        "email": "nowak@gmail.com",
+        "city": "Poznań",
+        "street": "Bułgarska",
+        "localNumber": "3",
+        "flatNumber": "1",
+        "date": "2018-09-17T22:52"
+      },
+      "id": 8
     }
   ],
   "users": [

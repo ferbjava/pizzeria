@@ -5,6 +5,7 @@ import {ManageOrdersComponent} from '../manage-orders/manage-orders.component';
 import {DishDetailsComponent} from '../dish-details/dish-details.component';
 import {OrderDetailsComponent} from '../order-details/order-details.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DishPreviewComponent} from '../dish-preview/dish-preview.component';
 
 describe('AdminPanelComponent', () => {
   let component: AdminPanelComponent;
@@ -13,7 +14,12 @@ describe('AdminPanelComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule],
-      declarations: [ AdminPanelComponent, ManageDishesComponent, ManageOrdersComponent, DishDetailsComponent, OrderDetailsComponent]
+      declarations: [ AdminPanelComponent,
+        ManageDishesComponent,
+        ManageOrdersComponent,
+        DishDetailsComponent,
+        OrderDetailsComponent,
+        DishPreviewComponent]
     })
     .compileComponents();
   }));

@@ -1,1 +1,5 @@
-<div>Dish preview works!</div>
+<table class="preview">
+  <tr *ngFor="let dish of orderedDishes">
+    <td>{{dish.name}}</td>
+  </tr>
+</table>

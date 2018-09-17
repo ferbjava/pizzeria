@@ -8,7 +8,7 @@ import { Dish} from '../models/dish.model';
 })
 export class DishPreviewComponent implements OnInit {
 
-  @Input() dish: Dish;
+  @Input() orderedDishes: Dish[];
 
   constructor() { }
 

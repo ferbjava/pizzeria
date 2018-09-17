@@ -29,7 +29,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   deliveryForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', Validators.required),
-    telephone: new FormControl('', [Validators.required]),
+    phone: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     city: new FormControl('', Validators.required),
     street: new FormControl('', Validators.required),
