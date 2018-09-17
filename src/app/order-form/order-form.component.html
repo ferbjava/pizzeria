@@ -1,56 +1,64 @@
-<div class="order-container">
-  <div style="display: flex; justify-content: space-around">
-    <div class="dishes-list">Ordered dishes:
-      <table *ngIf="orderedDishes.length>0" class="table-dishes">
-        <tr class="table-col-description">
-          <th class="column-id">No.</th>
-          <th class="column-name">Name</th>
-          <th class="column-desc">Description</th>
-          <th class="column-price">Price</th>
-        </tr>
-        <tr *ngFor="let dish of orderedDishes; let i = index">
-          <td class="column-id">{{i+1}}</td>
-          <td class="column-name">{{dish.name}}</td>
-          <td class="column-desc">{{dish.description}}</td>
-          <td class="column-price">{{dish.price}}</td>
-        </tr>
-      </table>
+<div class="container order">
+  <div class="dishes-list">
+    <div>
+      Ordered dishes:
     </div>
+    <table *ngIf="orderedDishes.length>0" class="table-order">
+      <thead>
+      <tr class="table-col-description">
+        <th class="table-order-id">No.</th>
+        <th class="table-order-name">Name</th>
+        <th class="table-order-desc">Description</th>
+        <th class="table-order-price">Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let dish of orderedDishes; let i = index">
+        <td class="table-order-id">{{i+1}}</td>
+        <td class="table-order-name">{{dish.name}}</td>
+        <td class="table-order-desc">{{dish.description}}</td>
+        <td class="table-order-price">{{dish.price}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="order-form">Fill form below (all fields are required!)<br><br>
-      <form [formGroup] = "deliveryForm" (ngSubmit)="saveOrder()">
-        <label for="orderFName">First Name:</label>
-        <input type="text" id="orderFName" formControlName="firstName">
-        <br>
-        <label for="orderLName">Last Name:</label>
-        <input type="text" id="orderLName" formControlName="lastName">
-        <br>
-        <label for="orderPhone">Telephone Number:</label>
-        <input type="tel" id="orderPhone" formControlName="telephone">
-        <br>
-        <label for="orderEmail">Email:</label>
-        <input type="email" id="orderEmail" formControlName="email">
-        <br>
-        <label for="orderCity">City:</label>
-        <input type="text" id="orderCity" formControlName="city">
-        <br>
-        <label for="orderStreet">Street:</label>
-        <input type="text" id="orderStreet" formControlName="street">
-        <br>
-        <label for="orderLocal">Local Number:</label>
-        <input type="text" id="orderLocal" formControlName="localNumber">
-        <br>
-        <label for="orderFlat">Flat Number:</label>
-        <input type="text" id="orderFlat" formControlName="flatNumber">
-        <br>
-        <label for="date">Date: </label>
-        <input type="datetime-local" id="date" formControlName="date" [value]="getRecentDateAndTime()" [min]="getRecentDateAndTime()">
-        <br>
-        <button type="submit" [disabled]="!deliveryForm.valid" > Send Order!</button>
-      </form>
-      <div *ngIf="isConfirmed">
-        Your order is successfully confirmed! Number of order: {{savedOrder.id}}
-      </div>
+  <div class="order-form">
+    <div> Fill form below (all fields are required!)
+    </div>
+    <form [formGroup]="deliveryForm" (ngSubmit)="saveOrder()">
+      <label for="orderFName">First Name:</label>
+      <input type="text" id="orderFName" formControlName="firstName">
+      <br>
+      <label for="orderLName">Last Name:</label>
+      <input type="text" id="orderLName" formControlName="lastName">
+      <br>
+      <label for="orderPhone">Telephone Number:</label>
+      <input type="tel" id="orderPhone" formControlName="telephone">
+      <br>
+      <label for="orderEmail">Email:</label>
+      <input type="email" id="orderEmail" formControlName="email">
+      <br>
+      <label for="orderCity">City:</label>
+      <input type="text" id="orderCity" formControlName="city">
+      <br>
+      <label for="orderStreet">Street:</label>
+      <input type="text" id="orderStreet" formControlName="street">
+      <br>
+      <label for="orderLocal">Local Number:</label>
+      <input type="text" id="orderLocal" formControlName="localNumber">
+      <br>
+      <label for="orderFlat">Flat Number:</label>
+      <input type="text" id="orderFlat" formControlName="flatNumber">
+      <br>
+      <label for="date">Date: </label>
+      <input type="datetime-local" id="date" formControlName="date" [value]="getRecentDateAndTime()"
+             [min]="getRecentDateAndTime()">
+      <br>
+      <button class="table-button" type="submit" [disabled]="!deliveryForm.valid"> Send Order!</button>
+    </form>
+    <div *ngIf="isConfirmed">
+      Your order is successfully confirmed! Number of order: {{savedOrder.id}}
     </div>
   </div>
 </div>

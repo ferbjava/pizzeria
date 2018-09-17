@@ -1,7 +1,7 @@
-<div class="admin-container">
+<div class="container admin">
   <div class="admin-actions">
-    <button (click)="showDishes()">Manage dishes</button>
-    <button (click)="showOrders()">Manage orders</button>
+    <button class="navi-button admin-button" (click)="showDishes()">Manage dishes</button>
+    <button class="navi-button admin-button" (click)="showOrders()">Manage orders</button>
   </div>
   <div>
     <app-manage-dishes *ngIf="isDishesPanelActive"></app-manage-dishes>

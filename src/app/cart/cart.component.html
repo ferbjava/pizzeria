@@ -1,10 +1,11 @@
 <div class="container cart">
   <div class="navigation">
-    <button routerLink="/dishes">Back to menu</button>
-    <button routerLink="/order">Order summary</button>
+    <button class="navi-button cart-button" routerLink="/dishes">Back to menu</button>
+    <button class="navi-button cart-button" routerLink="/order">Order summary</button>
   </div>
-  <div>
-    Total price: {{totalPrice}}
+  <div class="price-summary">
+    <div> Total price:
+      {{totalPrice}} zl.</div>
   </div>
   <div>
     <table *ngIf="dishesInCart" class="table-cart">
@@ -23,7 +24,7 @@
         <td class="table-cart-desc">{{dish.description}}</td>
         <td class="table-cart-price">{{dish.price}}</td>
         <td class="table-cart-remove">
-          <button (click)="removeFromCart(this.dish)"> remove from cart</button>
+          <button class="table-button" (click)="removeFromCart(this.dish)"> remove from cart</button>
         </td>
       </tr>
       </tbody>

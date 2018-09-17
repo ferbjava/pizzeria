@@ -7,7 +7,9 @@
   <div class="control">
     <img class="header-icon" *ngIf="!getLoginStatus()" src="assets/cart.png" width="50" height="50" routerLink="/cart">
     <img class="header-icon" *ngIf="!getLoginStatus()" src="assets/login-old.png" width="50" height="50" routerLink="/login">
-    <span *ngIf="getLoginStatus()">Welcome Admin!</span>
+    <span *ngIf="getLoginStatus()">
+      <b>Welcome Admin!</b>
+    </span>
     <img class="header-icon" *ngIf="getLoginStatus()" src="assets/logout.png" width="50" height="50" (click)="logOut()" routerLink="/dishes">
   </div>
 </div>
