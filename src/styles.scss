@@ -1,7 +1,130 @@
-/* You can add global styles to this file, and also import other style files */
+// global styles
 * {
   font-family: Calibri;
 }
 body{
   background-image: url("assets/pizza-b02.png");
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  min-width: 640px;
+  margin: 2em;
+  background: #f5f5dc;
+  border-radius: 1em;
+}
+
+// cart styles
+.cart{
+  display: block;
+}
+.table-cart-id{
+  width: 5%;
+}
+.table-cart-name{
+  width: 30%;
+}
+.table-cart-description{
+  width: 50%;
+}
+.table-cart-price{
+  width: 15%;
+}
+
+// dishes styles
+.dishes{
+ display: block;
+}
+.navigation{
+  width: 100%;
+  min-width: 640px;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}
+.dishes-types{
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.5em;
+  padding: 0.5em;
+  background: #d2691e;
+  border: #d2691e;
+  color: #2322ff;
+  border-radius: 25px;
+  width: 25%;
+}
+
+//.table-dishes {
+table {
+  border: 6px solid #948473;
+  background-color: #FFE3C6;
+  text-align: center;
+  margin-left: 3vw;
+  width: 70%;
+  min-width: 600px;
+}
+td{
+  //.table-dishes td{
+  border: 1px solid #948473;
+  padding: 4px 4px;
+}
+tbody td {
+  //.table-dishes tbody td {
+  font-size: 17.5px;
+}
+thead {
+  //.table-dishes thead {
+  background: #948473;
+  background: linear-gradient(to bottom, #afa396 0%, #9e9081 66%, #948473 100%);
+}
+th {
+  //.table-dishes th {
+  font-size: 22.5px;
+  font-weight: bold;
+  color: #F0F0F0;
+  text-align: center;
+}
+.table-dishes td {
+  font-size: 16px;
+}
+.table-dishes-id{
+  width: 5%;
+}
+.table-dishes-name{
+  width: 25%;
+}
+.table-dishes-description{
+  width: 40%;
+}
+.table-dishes-price{
+  width: 10%;
+}
+.table-dishes-add{
+  width: 20%;
+}
+
+// header styles
+.header{
+  border-radius: 1em;
+}
+.title{
+  display: flex;
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+  font-family: "Blackadder ITC";
+  font-size: 40px;
+}
+.control{
+  width: 15%;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #f5f1cc;
+  border-radius: 1em;
+}
+.header-icon{
+  min-width: 50px;
 }

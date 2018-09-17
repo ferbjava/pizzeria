@@ -1,26 +1,32 @@
-<div class="dishes-container">
-  <div> Your cart </div>
-  <div>
+<div class="container cart">
+  <div class="navigation">
     <button routerLink="/dishes">Back to menu</button>
     <button routerLink="/order">Order summary</button>
-    <div>Total price: {{totalPrice}}
-    </div>
   </div>
-  <table *ngIf="dishesInCart" class="table-dishes">
-    <tr class="table-col-description">
-      <th class="column-id">No.</th>
-      <th class="column-name">Name</th>
-      <th class="column-desc">Description</th>
-      <th class="column-price">Price</th>
-    </tr>
-    <tr *ngFor="let dish of dishesInCart; let i = index">
-      <td class="column-id">{{i+1}}</td>
-      <td class="column-name">{{dish.name}}</td>
-      <td class="column-desc">{{dish.description}}</td>
-      <td class="column-price">{{dish.price}}</td>
-      <td class="column-remove">
-        <button (click)="removeFromCart(this.dish)"> remove from cart</button>
-      </td>
-    </tr>
-  </table>
+  <div>
+    Total price: {{totalPrice}}
+  </div>
+  <div>
+    <table *ngIf="dishesInCart" class="table-cart">
+      <thead>
+      <tr>
+        <th class="table-cart-id">No.</th>
+        <th class="table-cart-name">Name</th>
+        <th class="table-cart-desc">Description</th>
+        <th class="table-cart-price">Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let dish of dishesInCart; let i = index">
+        <td class="table-cart-id">{{i+1}}</td>
+        <td class="table-cart-name">{{dish.name}}</td>
+        <td class="table-cart-desc">{{dish.description}}</td>
+        <td class="table-cart-price">{{dish.price}}</td>
+        <td class="table-cart-remove">
+          <button (click)="removeFromCart(this.dish)"> remove from cart</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

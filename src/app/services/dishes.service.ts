@@ -21,7 +21,7 @@ export class DishesService {
   }
 
   getDishesByType(type: DishesTypes): Observable<Dish[]> {
-    return this.http.get<Dish[]>(`${this.dishesUrl}/?type=${type}`);
+    return this.http.get<Dish[]>(`${this.dishesUrl}/?type=${type}&&isAvailable=true`);
   }
 
   addDishToCart(dish: Dish): void {

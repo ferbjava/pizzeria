@@ -1,11 +1,13 @@
-<div class="header">
-  <span class="title" routerLink="/dishes">
-    Welcome to {{title}}!
-  </span>
-  <span class="control">
-    <img *ngIf="!getLoginStatus()" src="assets/cart.png" width="50" height="50" routerLink="/cart">
-    <img *ngIf="!getLoginStatus()" src="assets/login-old.png" width="50" height="50" routerLink="/login">
+<div class="container header">
+  <div class="title">
+    <span class="title" routerLink="/dishes">
+      Welcome to {{title}}!
+    </span>
+  </div>
+  <div class="control">
+    <img class="header-icon" *ngIf="!getLoginStatus()" src="assets/cart.png" width="50" height="50" routerLink="/cart">
+    <img class="header-icon" *ngIf="!getLoginStatus()" src="assets/login-old.png" width="50" height="50" routerLink="/login">
     <span *ngIf="getLoginStatus()">Welcome Admin!</span>
-    <img *ngIf="getLoginStatus()" src="assets/logout.png" width="50" height="50" (click)="logOut()" routerLink="/dishes">
-  </span>
+    <img class="header-icon" *ngIf="getLoginStatus()" src="assets/logout.png" width="50" height="50" (click)="logOut()" routerLink="/dishes">
+  </div>
 </div>

@@ -1,4 +1,4 @@
-{
+﻿{
   "dishes": [
     {
       "id": 1,
@@ -19,21 +19,39 @@
     {
       "id": 3,
       "name": "Pizza Havai",
-      "isAvailable": false,
-      "description": "Ulubiona przez wszystkich pizza!",
+      "isAvailable": true,
+      "description": "Sos, ser, szynka, ananas",
       "type": "pizza",
-      "price": "13.90"
+      "price": "24.90"
     },
     {
       "id": 4,
+      "name": "Pizza Carbonara",
+      "isAvailable": true,
+      "description": "Sos, ser, boczek, cebula, pieczarki",
+      "type": "pizza",
+      "price": "24.90"
+    },
+
+    {
+      "id": 5,
+      "name": "Pizza Pepperoni",
+      "isAvailable": true,
+      "description": "Sos, ser, pepperoni",
+      "type": "pizza",
+      "price": "24.90"
+    },
+
+    {
+      "id": 6,
       "name": "Spagetti Bolognese",
       "isAvailable": true,
       "description": "Sos boloński",
       "type": "spagetti",
-      "price": "14"
+      "price": "16.50"
     },
     {
-      "id": 5,
+      "id": 7,
       "name": "Spagetti Siciliana",
       "isAvailable": true,
       "description": "Sos boloński z szynką i kukurydzą",
@@ -41,35 +59,53 @@
       "price": "17.50"
     },
     {
-      "id": 6,
+      "id": 8,
+      "name": "Spagetti Carbonara",
+      "isAvailable": false,
+      "description": "Sos śmietanowy z boczkiem",
+      "type": "spagetti",
+      "price": "15.50"
+    },
+
+    {
+      "id": 9,
       "name": "Cola",
       "isAvailable": true,
-      "description": "Cold drink best for hot and sunny days",
+      "description": "Kultowy napój gazowany",
       "type": "drink",
       "price": "3.50"
     },
     {
-      "id": 7,
+      "id": 10,
       "name": "Sprite",
-      "isAvailable": true,
-      "description": "Cold drink best for hot and sunny days",
+      "isAvailable": false,
+      "description": "Napój gazowany o smaku cytrynowym",
       "type": "drink",
-      "price": "3.50"
+      "price": "3.40"
+    },
+    {
+      "id": 11,
+      "name": "Cisowianka",
+      "isAvailable": true,
+      "description": "Orzeźwiająca woda mineralna",
+      "type": "drink",
+      "price": "2.50"
     }
+
   ],
   "orders": [
     {
       "id": 1,
       "orderStatus": "ACCEPTED",
       "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
+        "firstName": "Adam",
+        "lastName": "Nowak",
+        "telephone": "123456789",
+        "email": "adam@qmail.com",
+        "city": "Poznań",
+        "street": "św. Marcina",
+        "localNumber": "4",
+        "flatNumber": "1",
         "date": "2018-09-14T15:10"
       },
       "dishIds": [
@@ -81,41 +117,42 @@
       "id": 2,
       "orderStatus": "FINISHED",
       "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
+        "firstName": "Jan",
+        "lastName": "Kowalski",
+        "telephone": "234567890",
+        "email": "jan@gmail.com",
+        "city": "Poznań",
+        "street": "Garbary",
+        "localNumber": "99",
+        "flatNumber": "20",
         "date": "2018-09-14T15:10"
       },
       "dishIds": [
         1,
-        2,
-        2
-      ]
+        3,
+        3,
+      9
+       ]
     },
     {
       "id": 3,
-      "orderStatus": "FINISHED",
+      "orderStatus": " ACCEPTED ",
       "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
+        "firstName": "Adam",
+        "lastName": "Nowak",
+        "telephone": "123456789",
+        "email": "adam@gmail.com",
+        "city": "Poznań",
+        "street": "św. Marcin",
+        "localNumber": "4",
+        "flatNumber": "1",
         "date": "2018-09-14T15:10"
       },
       "dishIds": [
-        1,
-        2,
-        2,
-        5
+        4,
+        5,
+        6,
+        11
       ]
     },
     {
@@ -125,35 +162,34 @@
       ],
       "orderStatus": "ACCEPTED",
       "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
+        "firstName": "Dariusz",
+        "lastName": "Wiśniewski",
+        "telephone": "456789012",
+        "email": "darek@wp.pl",
+        "city": "Poznań",
+        "street": "Bułgarska",
+        "localNumber": "5",
+        "flatNumber": "7",
         "date": "2018-09-14T15:10"
       },
       "id": 4
     },
     {
       "dishIds": [
-        4,
-        4,
-        7,
-        7
+        5,
+        6,
+        9
       ],
-      "orderStatus": "accepted",
+      "orderStatus": "ACCEPTED",
       "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
+        "firstName": "Anna",
+        "lastName": "Nowak",
+        "telephone": "432109876",
+        "email": "anula@zahoo.com",
+        "city": "Poznań",
+        "street": "Marcelińska",
+        "localNumber": "1",
+        "flatNumber": "11",
         "date": "2018-09-14T15:10"
       },
       "id": 5
@@ -164,107 +200,19 @@
         6,
         6
       ],
-      "orderStatus": "accepted",
+      "orderStatus": "ACCEPTED",
       "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
-        "date": ""
+        "firstName": "Grzegorz",
+        "lastName": "Brzęczeszczykiewicz",
+        "telephone": "800800800",
+        "email": "grzechu@wp.pl",
+        "city": "Poznań",
+        "street": "Głogowska",
+        "localNumber": "60",
+        "flatNumber": "1",
+        "date": "2018-09-14T15:20"
       },
       "id": 6
-    },
-    {
-      "dishIds": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "orderStatus": "accepted",
-      "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
-        "date": ""
-      },
-      "id": 7
-    },
-    {
-      "dishIds": [],
-      "orderStatus": "accepted",
-      "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "wrwd",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
-        "date": ""
-      },
-      "id": 8
-    },
-    {
-      "dishIds": [],
-      "orderStatus": "accepted",
-      "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "wrwd",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
-        "date": null
-      },
-      "id": 9
-    },
-    {
-      "dishIds": [],
-      "orderStatus": "accepted",
-      "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
-        "date": "2018-09-14T15:56"
-      },
-      "id": 10
-    },
-    {
-      "dishIds": [
-        1,
-        2
-      ],
-      "orderStatus": "accepted",
-      "deliveryData": {
-        "firstName": "wff",
-        "lastName": "ewfwer",
-        "telephone": "113123",
-        "email": "q@q",
-        "city": "sfsf",
-        "street": "sfsf",
-        "localNumber": "aDSAD",
-        "flatNumber": "dsf",
-        "date": "2018-09-17T11:12"
-      },
-      "id": 11
     }
   ],
   "users": [
