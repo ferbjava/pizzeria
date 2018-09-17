@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import { Dish} from '../models/dish.model';
 import {DishesService} from '../services/dishes.service';
-import {FormControl, FormControlName} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 

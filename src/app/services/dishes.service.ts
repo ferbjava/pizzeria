@@ -17,7 +17,7 @@ export class DishesService {
     ) {}
 
   getAllDishes(): Observable<Dish[]> {
-    return this.http.get<Dish[]>('/api/dishes');
+    return this.http.get<Dish[]>(`${this.dishesUrl}`);
   }
 
   getDishesByType(type: DishesTypes): Observable<Dish[]> {

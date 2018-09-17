@@ -1,10 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ManageOrdersComponent } from './manage-orders.component';
+import {ManageOrdersComponent} from './manage-orders.component';
 import {HttpClient, HttpHandler} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Component} from '@angular/core';
-import {Order} from '../models/order.model';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {OrderDetailsComponent} from '../order-details/order-details.component';
 import {OrderStatus} from '../enums/order-status';
 
 describe('ManageOrdersComponent', () => {
@@ -14,8 +13,8 @@ describe('ManageOrdersComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule],
-      declarations: [ ManageOrdersComponent, MockOrderDetailsComponent],
-      providers: [HttpClient, HttpHandler]
+      declarations: [ ManageOrdersComponent, OrderDetailsComponent, OrderStatus],
+      providers: [HttpClient, HttpHandler] // , {provide: OrderDetailsComponent, useClass: MockOrderDetailsComponent}]
     })
     .compileComponents();
   }));
@@ -31,21 +30,13 @@ describe('ManageOrdersComponent', () => {
   });
 });
 
-@Component({
-  selector: 'app-order-details',
-  template: ''
-})
-class MockOrderDetailsComponent {
-  order = new Order([0], OrderStatus.ACCEPTED, {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    city: '',
-    street: '',
-    flat: '',
-    local: ' ',
-    date: ''
-  });
-}
+// @Component({
+//   selector: 'app-order-details',
+//   template: ''
+// })
+// class MockOrderDetailsComponent {
+//   @Input() order: Order;
+//   keys: any[];
+//   statuses = OrderStatus;
+//   recentStatus = new FormControl('');
+// }

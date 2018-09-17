@@ -17,7 +17,7 @@ export class HeaderPanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginStatus(): boolean {
+  getLoginStatus(): boolean {
     return this.loginService.getLoginStatus();
   }
 

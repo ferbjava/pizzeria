@@ -3,9 +3,9 @@
     Welcome to {{title}}!
   </span>
   <span class="control">
-    <img *ngIf="!loginStatus()" src="assets/cart.png" width="50" height="50" routerLink="/cart">
-    <img *ngIf="!loginStatus()" src="assets/login-old.png" width="50" height="50" routerLink="/login">
-    <span *ngIf="loginStatus()">Welcome Admin!</span>
-    <img *ngIf="loginStatus()" src="assets/logout.png" width="50" height="50" (click)="logOut()" routerLink="/dishes">
+    <img *ngIf="!getLoginStatus()" src="assets/cart.png" width="50" height="50" routerLink="/cart">
+    <img *ngIf="!getLoginStatus()" src="assets/login-old.png" width="50" height="50" routerLink="/login">
+    <span *ngIf="getLoginStatus()">Welcome Admin!</span>
+    <img *ngIf="getLoginStatus()" src="assets/logout.png" width="50" height="50" (click)="logOut()" routerLink="/dishes">
   </span>
 </div>

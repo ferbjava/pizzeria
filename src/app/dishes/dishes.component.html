@@ -18,7 +18,7 @@
       <td class="column-desc">{{dish.description}}</td>
       <td class="column-price">{{dish.price}}</td>
       <td class="column-order">
-        <button (click)="addToCart(this.dish)"> Add to cart</button>
+        <button (click)="addToCart(this.dish)" id="to-cart-{{dish.id}}"> Add to cart</button>
       </td>
     </tr>
   </table>

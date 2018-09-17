@@ -1,9 +1,9 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {OrderDetailsComponent} from './order-details.component';
 import {HttpClient, HttpHandler} from '@angular/common/http';
 import {Order} from '../models/order.model';
 import {OrderStatus} from '../enums/order-status';
-import {DeliveryData} from '../models/deliveryData.model';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 describe('OrderDetailsComponent', () => {
@@ -22,8 +22,7 @@ describe('OrderDetailsComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OrderDetailsComponent);
-    const n = [0];
-    expectedOrder = new Order(n, OrderStatus.ACCEPTED, {
+    expectedOrder = new Order([0], OrderStatus.ACCEPTED, {
       id: 0,
       firstName: '',
       lastName: '',

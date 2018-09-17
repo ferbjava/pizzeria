@@ -19,7 +19,7 @@ export class DishesComponent implements OnInit, OnDestroy {
   typeDrink: DishesTypes = DishesTypes.DRINK;
 
   constructor(
-    private readonly service: DishesService,
+    private service: DishesService,
   ) {}
 
   ngOnInit(): void {
