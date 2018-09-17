@@ -5,7 +5,7 @@
   </div>
   <div class="price-summary">
     <div> Total price:
-      {{totalPrice}} zl.</div>
+      {{totalPrice | number: '1.2-2'}} zl</div>
   </div>
   <div>
     <table *ngIf="dishesInCart" class="table-cart">

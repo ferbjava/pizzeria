@@ -1,22 +1,27 @@
-<div class="order-container">
+<div class="order-details">
   <table *ngIf="isTableVisible" class="table-orders">
+    <thead>
     <tr class="table-col-description">
-      <th class="column-id">No</th>
-      <th class="column-status">Status</th>
-      <th class="column-dishes">List of dishes</th>
-      <th class="column-edition">Edition</th>
+      <th class="table-orders-det-id">No</th>
+      <th class="table-orders-det-status">Status</th>
+      <th class="table-orders-det-dishes">List of dishes</th>
+      <th class="table-orders-det-edition">Edition</th>
     </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let order of allOrders">
-      <td class="column-id">{{order.id}}</td>
-      <td class="column-status">{{order.orderStatus}}</td>
-      <td class="column-dishes">{{order.dishIds}}</td>
-      <td class="column-order">
-        <button (click)="showOrderDetails(order.id)"> Show details</button>
+      <td class="table-orders-det-id">{{order.id}}</td>
+      <td class="table-orders-det-status">{{order.orderStatus}}</td>
+      <td class="table-orders-det-dishes">{{order.dishIds}}</td>
+      <td class="table-orders-det-edition">
+        <button class="table-button" (click)="showOrderDetails(order.id)"> Show details</button>
       </td>
     </tr>
+    </tbody>
   </table>
   <app-order-details *ngIf="isOrderDetailsVisible" [order]="selectedOrder"></app-order-details>
+  <br>
   <div>
-    <button *ngIf="isOrderDetailsVisible" (click)="showAllOrders()"> Show all</button>
+    <button class="table-button" *ngIf="isOrderDetailsVisible" (click)="showAllOrders()"> Show all</button>
   </div>
 </div>

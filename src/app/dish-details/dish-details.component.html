@@ -1,11 +1,30 @@
 <div>
-  <div>Id: {{dish.id}}</div>
-  <div>Name: {{dish.name}}</div>
-  <div>Description: {{dish.description}}</div>
-  <div>Type: {{dish.type}}</div>
-  <div>Availability: {{dish.isAvailable}}
-    <input type="checkbox" [formControl]="availability">Availability
-  </div>
-  <div>Price: {{dish.price}}</div>
-  <button (click)="updateDish()"> Update details</button>
+  <table>
+    <tr>
+      <td>Id:</td>
+      <td>{{dish.id}}</td>
+    </tr>
+    <tr>
+      <td>Name: </td>
+      <td>{{dish.name}}</td>
+    </tr>
+    <tr>
+      <td>Description: </td>
+      <td>{{dish.description}}</td>
+    </tr>
+    <tr>
+      <td>Type: </td>
+      <td>{{dish.type}}</td>
+    </tr>
+    <tr>
+      <td>Availability: </td>
+      <td><input type="checkbox" [formControl]="availability"></td>
+    </tr>
+    <tr>
+      <td>Price: </td>
+      <td>{{dish.price}}</td>
+    </tr>
+  </table>
+  <br>
+  <button class="table-button" (click)="updateDish()"> Update details</button>
 </div>

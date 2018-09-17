@@ -22,6 +22,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   rawOrder: Order;
   savedOrder: Order;
   isConfirmed: boolean;
+  totalPrice: number;
 
   deliveryData: DeliveryData;
 
@@ -45,6 +46,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadDishesFromCart();
     this.isConfirmed = false;
+    this.totalPrice = this.dishService.calculateTotalPrice();
   }
 
   loadDishesFromCart() {
@@ -60,7 +62,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe(res => this.savedOrder = res);
     this.isConfirmed = true;
-    this.clearDeliveryForm();
+    this.clearCart();
   }
 
   getRecentDateAndTime(): string {
@@ -93,10 +95,11 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     return ids;
   }
 
-  private clearDeliveryForm() {
+  private clearCart() {
     this.orderedDishes = [];
     this.dishesId = [];
     this.deliveryForm.reset();
+    this.dishService.clearCart();
   }
 
   private addZeroToShortString(str: string): string {

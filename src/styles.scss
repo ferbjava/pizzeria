@@ -41,7 +41,6 @@ body{
   padding: 4px;
 }
 
-
 .navi-button:hover{
   background: #d29c27;
   border: #d29c27;
@@ -53,6 +52,34 @@ label{
   margin: 0.2em;
 }
 
+// manage-orders styles
+.order-details{
+  min-width: auto;
+}
+
+// manage-dishes styles
+.dishes-details{
+  min-width: auto;
+}
+.table-dishes-det-id{
+  width: 5%;
+}
+.table-dishes-det-name{
+  width: 20%;
+}
+.table-dishes-det-desc{
+  width: 40%;
+}
+.table-dishes-det-price{
+  width: 10%;
+}
+.table-dishes-det-availability{
+  width: 5%;
+}
+.table-dishes-det-edition{
+  width: 20%;
+}
+
 // admin panel styles
 .admin{
   display: block;
@@ -62,11 +89,6 @@ label{
   justify-content: space-around;
   width: 100%;
   align-content: center;
-}
-.cart-button{
-  justify-self: center;
-  width: 30%;
-  font-size: 1.5em;
 }
 
 // order-form styles
@@ -157,9 +179,6 @@ table {
 td{
   border: 1px solid #948473;
   padding: 4px 4px;
-}
-tbody td {
-  font-size: 17.5px;
 }
 thead {
   background: #948473;

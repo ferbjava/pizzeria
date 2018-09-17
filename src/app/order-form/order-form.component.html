@@ -1,7 +1,7 @@
 <div class="container order">
   <div class="dishes-list">
     <div>
-      Ordered dishes:
+      <b> Total price of selected dishes: {{totalPrice | number: '1.2-2'}} zl </b>
     </div>
     <table *ngIf="orderedDishes.length>0" class="table-order">
       <thead>

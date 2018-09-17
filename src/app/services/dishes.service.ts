@@ -43,4 +43,12 @@ export class DishesService {
     const index = this.dishesInCart.indexOf(dish);
     this.dishesInCart.splice(index, 1);
   }
+
+  clearCart(): void {
+    this.dishesInCart = [];
+}
+
+  calculateTotalPrice(): number {
+    return this.dishesInCart.reduce((a, b) => +a + +b.price, 0);
+  }
 }

@@ -1,14 +1,59 @@
 <div>
-  <div>Id: {{order.id}}</div>
-  <div>List of dishes: {{order.dishIds}}</div>
-  <div>Order placed at {{order.deliveryData.date}}</div>
-  <div>Delivery address:</div>
-  <div>City: {{order.deliveryData.city}}</div>
-  <div>Street: {{order.deliveryData.street}}</div>
-  <div>Status: {{order.orderStatus}}</div>
-  <select [formControl]="recentStatus">
-    <option *ngFor=" let key of keys" [value]="key">{{statuses[key]}}
-    </option>
-  </select>
-  <button (click)="updateOrder()">Update details</button>
+  <table>
+    <tr>
+      <td>Id:</td>
+      <td>{{order.id}}</td>
+    </tr>
+    <tr>
+      <td>Order placed at</td>
+      <td>{{order.deliveryData.date | date: 'medium'}}</td>
+    </tr>
+    <tr>
+      <td>Client:</td>
+      <td>{{order.deliveryData.firstName}} {{order.deliveryData.lastName}}</td>
+    </tr>
+    <tr>
+      <td>Telephone number:</td>
+      <td>{{order.deliveryData.phone}}</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>{{order.deliveryData.email}}</td>
+    </tr>
+    <tr>
+      <td>List of dishes:</td>
+      <td>{{order.dishIds}}</td>
+    </tr>
+    <tr>
+      <td>Delivery address:</td>
+    </tr>
+    <tr>
+      <td>City and street: </td>
+      <td>{{order.deliveryData.city}}, {{order.deliveryData.street}}</td>
+    </tr>
+    <tr>
+      <td>Local, flat:</td>
+      <td>{{order.deliveryData.local}} m. {{order.deliveryData.flat}}</td>
+    </tr>
+    <tr>
+      <td>Status:</td>
+      <td>
+        <select [formControl]="recentStatus">
+          <option *ngFor=" let key of keys" [value]="key">{{statuses[key]}}
+          </option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <div></div>
+  <div> </div>
+  <div> </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <button class="table-button" (click)="updateOrder()">Update details</button>
 </div>
